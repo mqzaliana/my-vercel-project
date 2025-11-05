@@ -1,6 +1,9 @@
-export async function GET() {
-    console.log("Мой API_KEY:", process.env.API_KEY);
-  return new Response(JSON.stringify({ message: "Привет с серверлесс-функции!" }), {
+export async function GET(request) {
+  const name = process.env.NAME || "Гость";
+
+  return new Response(JSON.stringify({
+    message: `Привет, ${name}! Это серверлесс-функция Next.js 🚀`,
+  }), {
     headers: { "Content-Type": "application/json" },
   });
 }
